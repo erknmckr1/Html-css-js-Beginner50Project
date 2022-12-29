@@ -1,0 +1,118 @@
+ @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:ital,wght@0,100;0,300;0,500;0,600;1,400&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    background-color: #333;
+    color: #222;
+    margin: 0;
+    
+}
+.container{
+    background-color: #fafafa;
+    transform-origin: top left;
+    transition: transform 1s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+}
+.container.show_nav{
+    transform: rotate(-15deg);
+}
+.circle-container{
+    position: fixed;
+    top:-100px;
+    left:-100px; 
+    
+    
+}
+.circle{
+    background-color:#F5B7B1;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 1s linear;
+}
+.container.show_nav .circle{
+    transform: rotate(-70deg);
+}
+.circle button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 30px;
+    
+}
+.circle button:focus{
+    outline: none;
+}
+.circle button#open{
+    left: 60%;
+}
+.circle button#close{
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    
+}
+/*Container div inde show_nav var iken nav li de translateX(0) olsun. İlk pozisyonlarına docenekler. ve bu 0.3 sanıyede gerceklesecek. */
+.container.show_nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+.content img{
+    max-width: 100%;
+}
+.content{
+    max-width: 1000px;
+}
+.content h1{
+    margin: 0;
+    font-size: 50px ;
+}
+.content small{
+    color: #555;
+    font-style: italic;
+}
+.content p{
+    color: #333;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+nav{
+    position: fixed;
+    left: 0;
+    bottom: 40px;
+    z-index: 100;
+}
+nav ul{
+    list-style-type: none;
+    padding-left: 50px;
+}
+nav ul li i {
+    font-size: 25px;
+    margin-right: 15px;
+}
+nav ul li{
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    transform: translateX(-100%); /* baslangıcta  daha solda olması gerekıyor cunku container divi dönerken navbar içeriye girecek. */
+    transition: transform 0.4s ease-in; /* transformun 0.4 sanıyede easy in effect i ile gelmesını ıstıyoruz. */
+}
+
+nav ul li + li { /*ikinci li elementine sola margin verdik*/
+    margin-left: 15px;
+    transform: translateX(-150%); /* açıya gore translate verdık gorunurde kalmaması ıcın her li ye daha fazla translate*/
+}
+nav ul li + li  + li  { /*3. li elementine daha fazla sola verdık ve soldan saga dogru cıkıntılı gozukecekeler.*/
+    margin-left: 30px;
+    transform: translateX(-200%);
+}

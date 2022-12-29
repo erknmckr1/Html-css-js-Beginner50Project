@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+    --line--border--fill:#1ABC9C;
+    --line--border--empty:#b9aeae;  
+    --circle--active--fill:#17202A;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.progress-container{
+    display: flex;
+    justify-content:space-between;
+    max-width: 100%;
+    width: 1000px;
+    margin-bottom: 50px;
+    position: relative;
+    
+    
+    
+}
+.progress-container::before{  
+    content: ' ';
+    position: absolute;
+    height: 30px;
+    background-color: var(--line--border--empty);
+    width: 100%;
+    z-index: -1;
+    transition: 0.4s ease; /* geçişin bi anda degıl de 0.4 sanıyede olmasını ıstıyoruz. */
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    top:10px;
+}
+.progress{  
+    position: absolute;
+    height: 30px;
+    background-color: var(--line--border--fill);
+    z-index: -1;
+    transition: 0.4s ease; /* geçişin bi anda degıl de 0.4 sanıyede olmasını ıstıyoruz. */
+    left: 0;
+    top:10px;
+}
+.circle{
+    background-color: #F4D03F;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: .4s ease;
+    
+}
+.circle.active{
+    border: 3px solid;
+    border-color: var(--circle--active--fill);
+}
+.btn{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+.btn#prev{
+    background-color: #A6ACAF;
+    border: #A6ACAF;
+}
+.btn:disabled{
+    background-color: #A6ACAF;
+    cursor: not-allowed;
+}
+.btn:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
